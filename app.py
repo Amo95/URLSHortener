@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash  # add flask modules
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
 from datetime import datetime
-import urllib.request as req
+import urllib.request
 import os
 
 app = Flask(__name__)
@@ -29,8 +29,8 @@ def shorturl(url):
     # set the api of a url shortner to a var
     apiurl = "http://tinyurl.com/api-create.php?url="
     # append parameter to the api
-    web = req.Request(apiurl + url)
-    with req.urlopen(web) as response:
+    web = apiurl + url
+    with urllib.request.urlopen(web) as response:
       return response.read().decode("utf-8")
   except Exception as e:
     return "error"
