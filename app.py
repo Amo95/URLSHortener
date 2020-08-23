@@ -1,14 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash  # add flask modules
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
 from datetime import datetime
-# from flask_optimize import FlaskOptimize # optimize flask endpoints by compressing code
 import urllib.request as req
 import os
 
 app = Flask(__name__)
 
 location = os.path.abspath(os.getcwd()) + "/todo.db"
-# flask_optimize = FlaskOptimize() # initialize optimizer
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{location}' # add absolute path to db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # load modification in db
