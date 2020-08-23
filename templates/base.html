@@ -7,6 +7,7 @@
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"/>
     <title>
       {% if title %}
       {{ title }}
@@ -26,6 +27,33 @@
     <div class="loader-container">
       <span class="loader"><span class="loader-inner"></span></span>
     </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer">
+        <ul>
+          <li>
+            <a href="https://twitter.com/dummyCod3r_" id="foot">Twitter</a>
+          </li>
+          <li>
+            <a href="https://instagram.com/dummy_404/" id="foot">Instagram</a>
+          </li>
+          <li>
+            <a href="mailto:jameaamo@gmail.com" id="foot">Email</a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/james-amo-037531157" id="foot">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://github.com/amo95" id="foot">Github</a>
+          </li>
+          <li>
+            <p>👋</p>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- end footer -->
 
     <!-- js -->
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
