@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash  # a
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
 from datetime import datetime
 import urllib.request as req
-from urllib.error import HTTPError
 import os
 
 app = Flask(__name__)
