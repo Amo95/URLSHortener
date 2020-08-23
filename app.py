@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for datab
 from datetime import datetime
 # from flask_optimize import FlaskOptimize # optimize flask endpoints by compressing code
 import urllib.request as req
-from urllib.error import HTTPError
 import os
 
 app = Flask(__name__)
@@ -33,7 +32,7 @@ def shorturl(url):
     apiurl = "http://tinyurl.com/api-create.php?url="
     shorturl = req.urlopen(apiurl + url).read() #  append parameter to the api
     return shorturl.decode("utf-8")
-  except HTTPError:
+  except:
     return "error"
 
 
