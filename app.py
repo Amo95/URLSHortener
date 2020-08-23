@@ -28,8 +28,9 @@ def shorturl(url):
   try:
     # set the api of a url shortner to a var
     apiurl = "http://tinyurl.com/api-create.php?url="
-    shorturl = req.urlopen(apiurl + url).read() #  append parameter to the api
-    return shorturl.decode("utf-8")
+    # append parameter to the api
+    with req.urlopen(apiurl + url) as response:
+      return response.read().decode("utf-8")
   except:
     return "error"
 
