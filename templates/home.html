@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-green-s800 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+  <div class="mb-4">
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" class="images">
+    <div class="grid mt-4">
+      {% include "partials/_form.html" %}
+    </div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <ul>
+            <li><div class="bg-white text-center rounded-full font-semibold text-red-700">{{ msg }}</div></li>
+          </ul>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+  <div class="flex-container">
+  <div class="max-w-sm w-full lg:max-w-full lg:grid"ss>
+    {% if tasks %}
+    {% for task in tasks %}
+    <div class="flex w-full py-2 px-3 mr-4 mb-4">
+      <p class="text-white w-full text-grey-darkest">
+        <a href="{{ task.name }}">{{ task.name }}</a>
+      </p>
+      <!-- delete -->
+      <a href="/delete/{{ task.id }}">
+        <svg viewBox="0 0 20 20" fill="white" class="document-remove w-6 h-6"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm1 8a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+      </a>
+    </div>
+    {% endfor %}
+    {% else %}
+
+    <p class="text-white text-center">No url shortened</p>
+
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% endblock content %}
