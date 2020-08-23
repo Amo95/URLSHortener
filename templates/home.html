@@ -6,15 +6,19 @@
     <div class="grid mt-4">
       {% include "partials/_form.html" %}
     </div>
+
+    <!-- flash message -->
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-        {% for msg in messages %}
+        {% for message in messages %}
           <div class="bg-white text-center rounded-full font-semibold text-red-700">
-            {{ msg }}
+            {{ message }}
           </div>
         {% endfor %}
       {% endif %}
     {% endwith %}
+    <!-- end -->
+    
   </div>
   <div class="flex-container">
   <div class="max-w-sm w-full lg:max-w-full lg:grid"ss>
