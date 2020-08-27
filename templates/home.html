@@ -2,7 +2,7 @@
 {% block content %}
 <div class="bg-green-800 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
   <div class="mb-4">
-    <img src="{{ url_for('static', filename='images/logo.svg') }}" class="images">
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" class="images animate__animated animate__bounce">
     <div class="grid mt-4">
       {% include "partials/_form.html" %}
     </div>
@@ -21,15 +21,15 @@
     
   </div>
   <div class="flex-container">
-  <div class="max-w-sm w-full lg:max-w-full lg:grid"ss>
+  <div class="max-w-sm w-full lg:max-w-full lg:grid">
     {% if tasks %}
     {% for task in tasks %}
     <div class="flex w-full py-2 px-3 mr-4 mb-4">
-      <p class="text-white w-full text-grey-darkest">
-        <a href="{{ task.name }}">{{ task.name }}</a>
+      <p class="text-white w-full text-grey-darkest" id="task">
+        <a href="#" id="wave">{{ task.name }}</a>
       </p>
       <!-- delete -->
-      <a href="/delete/{{ task.id }}">
+      <a href="/delete/{{ task.id }}" id="icon">
         <svg viewBox="0 0 20 20" fill="white" class="document-remove w-6 h-6"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm1 8a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
       </a>
     </div>

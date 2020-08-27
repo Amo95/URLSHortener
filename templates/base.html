@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"/>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"/>
     <title>
@@ -25,8 +24,10 @@
 
     <!-- loader container -->
     <div class="loader-container">
-      <span class="loader"><span class="loader-inner"></span></span>
+      <img src="{{ url_for('static', filename='images/loader.svg') }}">
     </div>
+
+
 
     <!-- footer -->
     <div class="bg-green-900">
@@ -58,7 +59,29 @@
     <!-- end footer -->
 
     <!-- js -->
+    <script src="{{ url_for('static', filename='js/copy.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+
+   <!--  <script>
+      document.getElementById('task').addEventListener('click',function(){
+        var copy_text = document.getElementById('wave').innerHTML;
+        copy_text.select()
+        var range = document.createRange();
+        range.selectNode(copy_text);
+        window.getSelection().addRange(range);
+
+
+        try{
+          var success = document.execCommand('copy');
+          var msg = success ? "success" :"fail";
+          alert(msg)
+        }catch(e){
+          alert("oops!! copy fail")
+        }
+      })
+    </script> -->
+
     <script>
         $(window).on("load",function(){
           $(".loader-container").fadeOut("slow");
