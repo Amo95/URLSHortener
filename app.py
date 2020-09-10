@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash  # a
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
 from datetime import datetime
 import urllib.request
-import os
+import os, random
 
 app = Flask(__name__)
 
@@ -73,5 +73,5 @@ def errror_404_page(error):
 
 
 if __name__ == "__main__":
-  app.run(port=50000, debug=True)
+  app.run()
 
