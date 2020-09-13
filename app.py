@@ -57,8 +57,8 @@ def home():
 
 @app.route('/delete/<int:id>')
 # @flask_optimize.optimize()
-def delete(iden):
-   task = Task.query.get_or_404(iden)
+def delete(id):
+   task = Task.query.get_or_404(id)
 
    try:
        db.session.delete(task)
