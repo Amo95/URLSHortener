@@ -30,9 +30,9 @@ def shorturl(url):
     apiurl = "http://tinyurl.com/api-create.php?url="
     # append parameter to the api
     web = apiurl + url
-    with urllib.request.urlopen(web) as response:
-    # response = req.urlopen(web).read()
-      return response.read().decode("utf-8")
+    # with urllib.request.urlopen(web) as response:
+    response = req.urlopen(web).read()
+    return response.decode("utf-8")
   except Exception as e:
     return "error"
 
@@ -45,11 +45,12 @@ def home():
     name = shorturl(name)
     if name == "error":
       flash("Enter valid URL!!")
+      return redirect('/')
     else:
       new_task = Task(name=name)
       db.session.add(new_task)
       db.session.commit()
-    redirect('/')
+      return redirect('/')
   else:
      tasks = Task.query.order_by(Task.created_at).all()  # order task by duration
   return render_template("home.html", tasks=tasks)  # render home.html 
