@@ -31,7 +31,7 @@ def shorturl(url):
     web = apiurl + url
     with urllib.request.urlopen(web) as response:
       return response.read().decode("utf-8")
-  except:
+  except Exception as e:
     return "error"
 
 # create endpoints
