@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash  # add flask modules
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
+from flask_sslify import SSLify
 from datetime import datetime
 import urllib.request
 import os, random
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="")
+if "DYNO" in os.environ:
+  sslify = SSLify(app)
 
 location = os.path.abspath(os.getcwd()) + "/todo.db"
 
@@ -12,7 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{location}' # add absolute p
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # load modification in db
 app.config["SECRET_KEY"] = os.urandom(24)
 db = SQLAlchemy(app)  # start sqlalchemy
-
 
 class Task(db.Model):
    id = db.Column(db.Integer, primary_key=True)
