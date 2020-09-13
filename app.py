@@ -33,7 +33,7 @@ def shorturl(url):
       import urllib.request
       with urllib.request.urlopen(web) as response:
         return response.read().decode("utf-8")
-    except:
+    except ImportError:
       import urllib2
       with urllib2.urlopen(web) as response:
         return response.read().decode("utf-8")
