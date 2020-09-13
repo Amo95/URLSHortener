@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash  # add flask modules
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
 from datetime import datetime
-import urllib.request
 import os
 import random
 
@@ -30,8 +29,14 @@ def shorturl(url):
     apiurl = "http://tinyurl.com/api-create.php?url="
     # append parameter to the api
     web = apiurl + url
-    with urllib.request.urlopen(web) as response:
-      return response.read().decode("utf-8")
+    try:
+      import urllib.request
+      with urllib.request.urlopen(web) as response:
+        return response.read().decode("utf-8")
+    except:
+      import urllib2
+      with urllib2.urlopen(web) as response:
+        return response.read().decode("utf-8")
   except Exception as e:
     return "error"
 
