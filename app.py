@@ -45,7 +45,6 @@ def home():
     name = shorturl(name)
     if name == "error":
       flash("Enter valid URL!!")
-      return redirect('/')
     else:
       new_task = Task(name=name)
       db.session.add(new_task)
