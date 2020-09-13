@@ -55,10 +55,10 @@ def home():
      tasks = Task.query.order_by(Task.created_at).all()  # order task by duration
   return render_template("home.html", tasks=tasks)  # render home.html 
 
-@app.route('/delete/<int:id>')
+@app.route('/delete/<int:iden>')
 # @flask_optimize.optimize()
-def delete(id):
-   task = Task.query.get_or_404(id)
+def delete(iden):
+   task = Task.query.get_or_404(iden)
 
    try:
        db.session.delete(task)
