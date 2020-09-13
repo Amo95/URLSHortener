@@ -31,8 +31,8 @@ def shorturl(url):
     # append parameter to the api
     web = apiurl + url
     # with urllib.request.urlopen(web) as response:
-    response = req.urlopen(web).read()
-    return response.decode("utf-8")
+    response = req.urlopen(web).read().decode("utf-8")
+    return response
   except Exception as e:
     return "error"
 
