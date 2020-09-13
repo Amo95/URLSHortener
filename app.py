@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash  # add flask modules
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
-from flask_sslify import SSLify
 from datetime import datetime
 import urllib.request
 import os, random
 
-app = Flask(__name__, static_url_path="")
-if "DYNO" in os.environ:
-  sslify = SSLify(app)
+app = Flask(__name__)
 
 location = os.path.abspath(os.getcwd()) + "/todo.db"
 
