@@ -30,10 +30,9 @@ def shorturl(url):
     apiurl = "http://tinyurl.com/api-create.php?url="
     # append parameter to the api
     web = apiurl + url
-    try:
-      # with urllib.request.urlopen(web) as response:
-      response = req.urlopen(web).read()
-      return response.decode("utf-8")
+    # with urllib.request.urlopen(web) as response:
+    response = req.urlopen(web).read()
+    return response.decode("utf-8")
   except Exception as e:
     return "error"
 
