@@ -34,7 +34,6 @@ def shorturl(url):
   except Exception as e:
     return "error"
 
-
 # create endpoints
 @app.route("/", methods=['POST', 'GET'])
 # @flask_optimize.optimize()
@@ -49,7 +48,7 @@ def home():
       db.session.add(new_task)
       db.session.commit()
     return redirect('/')
-  if request.method == "GET":
+  else:
      tasks = Task.query.order_by(Task.created_at).all()  # order task by duration
   return render_template("home.html", tasks=tasks)  # render home.html 
 
