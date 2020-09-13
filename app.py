@@ -61,7 +61,7 @@ def delete(id):
        db.session.delete(task)
        db.session.commit()
        return redirect('/')
-   except:
+   except Exception as e:
        return "There was a problem deleting data."
 
 @app.errorhandler(404)
