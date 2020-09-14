@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash  # add flask modules
 from flask_sqlalchemy import SQLAlchemy  # add flask_sqlalchemy module for database
 from datetime import datetime
-import urllib.request.urlopen as req
+from urllib.request import urlopen as req
 import os
 import random
 
