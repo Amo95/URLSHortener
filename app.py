@@ -51,8 +51,7 @@ def home():
       db.session.commit()
     return redirect('/')
 
-  else:
-     tasks = Task.query.order_by(Task.created_at).all()  # order task by duration
+  tasks = Task.query.order_by(Task.created_at).all()  # order task by duration
   return render_template("home.html", tasks=tasks)  # render home.html 
 
 @app.route('/delete/<int:iden>')
