@@ -49,7 +49,8 @@ def home():
       new_task = Task(name=name)
       db.session.add(new_task)
       db.session.commit()
-    print(redirect('/'))
+    return redirect('/')
+
   else:
      tasks = Task.query.order_by(Task.created_at).all()  # order task by duration
   return render_template("home.html", tasks=tasks)  # render home.html 
